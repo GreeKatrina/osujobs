@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  top_message: MyString
+  message_to_applicants: MyText
+  num_positions_available: 
+  university_title: MyString
+  working_title: MyString
+  department: MyString
+  department_location: MyString
+  requisition_number: 
+  summary_of_duties: MyText
+  add_info_for_applicants: MyText
+  pre_employment_screening: MyString
+  required_qualifications: MyText
+  desired_qualifications: MyText
+  target_salary: MyString
+  job_category: MyString
+  job_appointment: MyString
+  full_time: false
+  temporary: false
+  posting_start_date: 2018-08-19 20:42:51
+  posting_end_date: 2018-08-19 20:42:51
+  dept_contact_name: MyString
+  dept_contact_phone: MyString
+  link: MyString
+
+two:
+  title: MyString
+  top_message: MyString
+  message_to_applicants: MyText
+  num_positions_available: 
+  university_title: MyString
+  working_title: MyString
+  department: MyString
+  department_location: MyString
+  requisition_number: 
+  summary_of_duties: MyText
+  add_info_for_applicants: MyText
+  pre_employment_screening: MyString
+  required_qualifications: MyText
+  desired_qualifications: MyText
+  target_salary: MyString
+  job_category: MyString
+  job_appointment: MyString
+  full_time: false
+  temporary: false
+  posting_start_date: 2018-08-19 20:42:51
+  posting_end_date: 2018-08-19 20:42:51
+  dept_contact_name: MyString
+  dept_contact_phone: MyString
+  link: MyString

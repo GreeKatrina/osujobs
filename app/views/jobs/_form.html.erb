@@ -1,0 +1,137 @@
+<%= form_with(model: job, local: true) do |form| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :top_message %>
+    <%= form.text_field :top_message %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message_to_applicants %>
+    <%= form.text_area :message_to_applicants %>
+  </div>
+
+  <div class="field">
+    <%= form.label :num_positions_available %>
+    <%= form.text_field :num_positions_available %>
+  </div>
+
+  <div class="field">
+    <%= form.label :university_title %>
+    <%= form.text_field :university_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :working_title %>
+    <%= form.text_field :working_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :department %>
+    <%= form.text_field :department %>
+  </div>
+
+  <div class="field">
+    <%= form.label :department_location %>
+    <%= form.text_field :department_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requisition_number %>
+    <%= form.text_field :requisition_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :summary_of_duties %>
+    <%= form.text_area :summary_of_duties %>
+  </div>
+
+  <div class="field">
+    <%= form.label :add_info_for_applicants %>
+    <%= form.text_area :add_info_for_applicants %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pre_employment_screening %>
+    <%= form.text_field :pre_employment_screening %>
+  </div>
+
+  <div class="field">
+    <%= form.label :required_qualifications %>
+    <%= form.text_area :required_qualifications %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desired_qualifications %>
+    <%= form.text_area :desired_qualifications %>
+  </div>
+
+  <div class="field">
+    <%= form.label :target_salary %>
+    <%= form.text_field :target_salary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :job_category %>
+    <%= form.text_field :job_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :job_appointment %>
+    <%= form.text_field :job_appointment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :full_time %>
+    <%= form.check_box :full_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :temporary %>
+    <%= form.check_box :temporary %>
+  </div>
+
+  <div class="field">
+    <%= form.label :posting_start_date %>
+    <%= form.datetime_select :posting_start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :posting_end_date %>
+    <%= form.datetime_select :posting_end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dept_contact_name %>
+    <%= form.text_field :dept_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dept_contact_phone %>
+    <%= form.text_field :dept_contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
