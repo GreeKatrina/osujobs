@@ -5,7 +5,7 @@ By [Katrina Theodosopoulos](mailto:katrinacodes@gmail.com)
 ## Instructions
 
 1. Make sure you have Ruby and Rails installed.
-2. `$ git clone git@github.com:GreeKatrina/osujobs.git`
+2. `$ git clone https://github.com/GreeKatrina/osujobs.git`
 3. `$ cd osujobs`
 4. `$ bundle`
 5. Sync database: `$ bundle exec rake sync:jobs` (Shouldn't take more than 5 minutes.)
