@@ -10,71 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_172251) do
-
-  create_table "feeds", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "job_question_options", force: :cascade do |t|
-    t.integer "job_question_id"
-    t.string "option"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "job_questions", force: :cascade do |t|
-    t.integer "job_id"
-    t.string "question"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2018_08_22_052951) do
 
   create_table "jobs", force: :cascade do |t|
-    t.string "title"
-    t.string "top_message"
-    t.text "message_to_applicants"
-    t.integer "num_positions_available"
-    t.string "university_title"
-    t.string "working_title"
-    t.string "department"
-    t.string "department_location"
-    t.integer "requisition_number"
-    t.text "summary_of_duties"
-    t.text "add_info_for_applicants"
-    t.string "pre_employment_screening"
-    t.text "required_qualifications"
-    t.text "desired_qualifications"
-    t.string "target_salary"
-    t.string "job_category"
-    t.string "job_appointment"
-    t.boolean "full_time"
-    t.boolean "temporary"
+    t.string "title", default: "", null: false
+    t.boolean "full_time", default: false, null: false
+    t.boolean "temporary", default: false, null: false
     t.datetime "posting_start_date"
     t.datetime "posting_end_date"
-    t.string "dept_contact_name"
-    t.string "dept_contact_phone"
-    t.string "link"
+    t.string "dept_contact_name", default: "", null: false
+    t.string "dept_contact_phone", default: "", null: false
+    t.string "link", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "posting_updated_date"
-  end
-
-  create_table "optional_documents", force: :cascade do |t|
-    t.integer "job_id"
-    t.string "document"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "required_documents", force: :cascade do |t|
-    t.integer "job_id"
-    t.string "document"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "entry_id", null: false
+    t.datetime "entry_published", null: false
+    t.datetime "entry_updated", null: false
+    t.string "department", default: "", null: false
+    t.string "target_salary", default: "", null: false
+    t.index ["entry_id"], name: "index_jobs_on_entry_id", unique: true
   end
 
 end

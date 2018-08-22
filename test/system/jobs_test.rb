@@ -14,7 +14,7 @@ class JobsTest < ApplicationSystemTestCase
     visit jobs_url
     click_on "New Job"
 
-    fill_in "Add Info For Applicants", with: @job.add_info_for_applicants
+    fill_in "Add Info For Applicants", with: @job.additional_info_for_applicants
     fill_in "Department", with: @job.department
     fill_in "Department Location", with: @job.department_location
     fill_in "Dept Contact Name", with: @job.dept_contact_name
@@ -25,7 +25,7 @@ class JobsTest < ApplicationSystemTestCase
     fill_in "Job Category", with: @job.job_category
     fill_in "Link", with: @job.link
     fill_in "Message To Applicants", with: @job.message_to_applicants
-    fill_in "Num Positions Available", with: @job.num_positions_available
+    fill_in "Num Positions Available", with: @job.number_of_positions_available
     fill_in "Posting End Date", with: @job.posting_end_date
     fill_in "Posting Start Date", with: @job.posting_start_date
     fill_in "Pre Employment Screening", with: @job.pre_employment_screening
@@ -48,7 +48,7 @@ class JobsTest < ApplicationSystemTestCase
     visit jobs_url
     click_on "Edit", match: :first
 
-    fill_in "Add Info For Applicants", with: @job.add_info_for_applicants
+    fill_in "Add Info For Applicants", with: @job.additional_info_for_applicants
     fill_in "Department", with: @job.department
     fill_in "Department Location", with: @job.department_location
     fill_in "Dept Contact Name", with: @job.dept_contact_name
@@ -59,7 +59,7 @@ class JobsTest < ApplicationSystemTestCase
     fill_in "Job Category", with: @job.job_category
     fill_in "Link", with: @job.link
     fill_in "Message To Applicants", with: @job.message_to_applicants
-    fill_in "Num Positions Available", with: @job.num_positions_available
+    fill_in "Num Positions Available", with: @job.number_of_positions_available
     fill_in "Posting End Date", with: @job.posting_end_date
     fill_in "Posting Start Date", with: @job.posting_start_date
     fill_in "Pre Employment Screening", with: @job.pre_employment_screening

@@ -1,73 +1,81 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Jobs</h1>
+<h1>Jobs At OSU</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Top message</th>
-      <th>Message to applicants</th>
-      <th>Num positions available</th>
-      <th>University title</th>
-      <th>Working title</th>
-      <th>Department</th>
-      <th>Department location</th>
-      <th>Requisition number</th>
-      <th>Summary of duties</th>
-      <th>Add info for applicants</th>
-      <th>Pre employment screening</th>
-      <th>Required qualifications</th>
-      <th>Desired qualifications</th>
-      <th>Target salary</th>
-      <th>Job category</th>
-      <th>Job appointment</th>
-      <th>Full time</th>
-      <th>Temporary</th>
-      <th>Posting start date</th>
-      <th>Posting end date</th>
-      <th>Dept contact name</th>
-      <th>Dept contact phone</th>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col">
+      <h4>Sort</h4>
+    </div>
+    <div class="col">
+      <div id="sorts" class="button-group sort-by-button-group">
+        <button class="button is-checked" data-sort-value="name">Name</button>
+        <button class="button" data-sort-value="department">Department</button>
+        <button class="button" data-sort-value="start_date">Posting Start Date</button>
+        <button class="button" data-sort-value="end_date">Posting End Date</button>
+      </div>
+    </div>
+    <div class="col">
+      <h4>Filter</h4>
+    </div>
+    <div class="col">
+      <div id="filters" class="button-group filters-button-group">
+        <button class="button is-checked" data-filter="*">All</button>
+        <button class="button" data-filter=".full_time">Full-Time</button>
+        <button class="button" data-filter=".part_time">Part-Time</button>
+        <button class="button" data-filter=".temporary">Temporary</button>
+        <button class="button" data-filter=".regular">Regular</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.title %></td>
-        <td><%= job.top_message %></td>
-        <td><%= job.message_to_applicants %></td>
-        <td><%= job.num_positions_available %></td>
-        <td><%= job.university_title %></td>
-        <td><%= job.working_title %></td>
-        <td><%= job.department %></td>
-        <td><%= job.department_location %></td>
-        <td><%= job.requisition_number %></td>
-        <td><%= job.summary_of_duties %></td>
-        <td><%= job.add_info_for_applicants %></td>
-        <td><%= job.pre_employment_screening %></td>
-        <td><%= job.required_qualifications %></td>
-        <td><%= job.desired_qualifications %></td>
-        <td><%= job.target_salary %></td>
-        <td><%= job.job_category %></td>
-        <td><%= job.job_appointment %></td>
-        <td><%= job.full_time %></td>
-        <td><%= job.temporary %></td>
-        <td><%= job.posting_start_date %></td>
-        <td><%= job.posting_end_date %></td>
-        <td><%= job.dept_contact_name %></td>
-        <td><%= job.dept_contact_phone %></td>
-        <td><%= job.link %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="container-fluid">
+  <div class="title-row row col-xs-12">
+    <div class="grid-title col-xs-2">Title</div>
+    <div class="grid-title col-xs-2">Department</div>
+    <div class="grid-title col-xs-1">Target Salary</div>
+    <div class="grid-title col-xs-1">Full/Part-Time</div>
+    <div class="grid-title col-xs-1">Temporary/ Regular</div>
+    <div class="grid-title col-xs-1">Posting Start Date</div>
+    <div class="grid-title col-xs-1">Posting End Date</div>
+    <div class="grid-title col-xs-2">Contact Name</div>
+    <div class="grid-title col-xs-1">Contact Phone</div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="grid">
+    <% @jobs.each do |job|
+      data_classes = ''
+
+      if job.full_time
+        full_time = 'Full-Time'
+        data_classes += ' full_time'
+      else
+        full_time = 'Part-Time'
+        data_classes += ' part_time'
+      end
+
+      if job.temporary
+        temporary = 'Temporary'
+        data_classes += ' temporary'
+      else
+        temporary = 'Regular'
+        data_classes += ' regular'
+      end
+    %>
+      <div class="grid-item row col-xs-12<%= data_classes %>">
+        <div class="grid-item-content name col-xs-2 btn btn-link"><%= link_to job.title, job.link %></div>
+        <div class="grid-item-content department col-xs-2"><%= job.department %></div>
+        <div class="grid-item-content col-xs-1"><%= job.target_salary %></div>
+        <div class="grid-item-content col-xs-1"><%= full_time %></div>
+        <div class="grid-item-content col-xs-1"><%= temporary %></div>
+        <div class="grid-item-content start_date col-xs-1"><%= job.posting_start_date.is_a?(Time) ? job.posting_start_date.strftime('%Y-%m-%d') : '' %></div>
+        <div class="grid-item-content end_date col-xs-1"><%= job.posting_end_date.is_a?(Time) ? job.posting_end_date.strftime('%Y-%m-%d') : '' %></div>
+        <div class="grid-item-content col-xs-2"><%= job.dept_contact_name %></div>
+        <div class="grid-item-content col-xs-1"><%= job.dept_contact_phone.insert(3, '-').insert(7, '-') unless job.dept_contact_phone.empty? %></div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Job', new_job_path %>
+  </div>
+</div>

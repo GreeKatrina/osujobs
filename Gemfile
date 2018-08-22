@@ -64,3 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'feedjira'
 
 gem 'twitter-bootstrap-rails'
+
+gem 'httparty'
+
+gem 'nokogiri'
