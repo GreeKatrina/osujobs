@@ -1,24 +1,19 @@
-# README
+# List Jobs at OSU
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+By [Katrina Theodosopoulos](mailto:katrinacodes@gmail.com)
 
-Things you may want to cover:
+## Instructions
 
-* Ruby version
+1. Make sure you have Ruby and Rails installed.
+2. `$ git clone git@github.com:GreeKatrina/osujobs.git`
+3. `$ cd osujobs`
+4. `$ bundle`
+5. Sync database: `$ bundle exec rake sync:jobs` (Shouldn't take more than 5 minutes.)
+6. `rails server`
+7. Go to `localhost:3000` in your browser.
+8. Enjoy!
 
-* System dependencies
+## Technologies Used
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [Bootstrap](https://getbootstrap.com/)
+* [Isotope](https://isotope.metafizzy.co/)
